@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Pokedex from './components/pokedex';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Pokedex />
   </React.StrictMode>,
   document.getElementById('root')
 );
