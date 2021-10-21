@@ -1,27 +1,24 @@
 import styled from 'styled-components';
-
-const InfoPanelContainer = styled.div`
-    width: 200px;
-    position: relative;
-`
+import Button from "./button";
 
 const Content = styled.div`
     border: 2px solid black;
-    margin: 20px;
     background-color: white;
     text-align: center;
+    margin: 0 20px;
+
 `
 
 const Name = styled.h1`
     text-transform: capitalize;
-    margin-bottom: 20px;
     font-size: 16px;
 `;
 
 const Controls = styled.div`
     display: flex;
     height: 40px;
-    justify-content: flex-end;
+    justify-content: center;
+    margin: 10px 0;
 `
 
 const InfoPanel = ({
@@ -32,17 +29,17 @@ const InfoPanel = ({
 } ) => {
 
     return (
-        <InfoPanelContainer>
+        <div>
             <Content>
                 <Name>{pokemon.name}</Name>
-                <p>Id: {pokemon.id}</p>
+                <p>ID: {pokemon.id}</p>
             </Content>
             <Controls>
-                    <button disabled={currentId <= 1} onClick={() => getPreviousPokemon()}>Back</button>
-                    <button onClick={() => getNextPokemon()}>Next</button>
+                    <Button color={"blue"} disabled={currentId <= 1} onClick={() => getPreviousPokemon()}>Back</Button>
+                    <Button color={"green"} onClick={() => getNextPokemon()}>Next</Button>
             </Controls>
            
-        </InfoPanelContainer>
+        </div>
     )
 }
 

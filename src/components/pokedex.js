@@ -6,19 +6,22 @@ import styled from 'styled-components';
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 const PokedexContainer = styled.div`
-    display: flex;
-    position: absolute;
-    justify-content: space-between;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border: 1px solid black;
     background-color: red;
-    flex-wrap: wrap;
+    max-width: 200px;
+    margin-left: 40px;
+    margin-top: 40px;
+
+    @media only screen and (max-width: 300px) {
+        max-width: unset;
+        margin-left: 0;
+        width: 100%;
+      }
+
+
 `;
 
 const Pokedex = () => {
-
     const [pokemon, setPokemon] = useState({});
     const [currentId, setCurrentId] = useState(1)
     const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +50,6 @@ const Pokedex = () => {
 
     const getPreviousPokemon = () => {
         const previous = currentId - 1;
-
         setCurrentId(previous);
         fetchPokemon(previous);
     }
@@ -61,7 +63,6 @@ const Pokedex = () => {
                 getNextPokemon={getNextPokemon} 
                 getPreviousPokemon={getPreviousPokemon}
                 pokemon={pokemon}/></> }
-      
         </PokedexContainer>
 
     );
