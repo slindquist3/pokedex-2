@@ -1,19 +1,24 @@
 import styled from 'styled-components';
 
+const ImagePanelContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const ImageContainer = styled.div`
+    background-color: white;
+    border: 2px solid black;
+    margin: 20px;
+`;
+
 const ImagePanel = ({image, name}) => {
 
-    const ImageContainer = styled.div`
-        width: 150px;
-        height: 150px;
-        background-color: white;
-    `;
-
     return (
-
             image ? 
-                <div>
+                <ImagePanelContainer>
                     <ImageContainer><img alt={name} src={image.front_default} /></ImageContainer>
-                </div> 
+                </ImagePanelContainer> 
             : <p>loading...</p>
     )
 }

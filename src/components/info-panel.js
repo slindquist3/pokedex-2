@@ -1,15 +1,28 @@
 import styled from 'styled-components';
 
-const Controls = styled.div`
-    height: 40px;
-    text-align: center;
+const InfoPanelContainer = styled.div`
+    width: 200px;
+    position: relative;
+`
 
+const Content = styled.div`
+    border: 2px solid black;
+    margin: 20px;
+    background-color: white;
+    text-align: center;
 `
 
 const Name = styled.h1`
+    text-transform: capitalize;
     margin-bottom: 20px;
-    margin-right: 20px;
+    font-size: 16px;
 `;
+
+const Controls = styled.div`
+    display: flex;
+    height: 40px;
+    justify-content: flex-end;
+`
 
 const InfoPanel = ({
     currentId,
@@ -19,17 +32,18 @@ const InfoPanel = ({
 } ) => {
 
     return (
-        <div>
-            <Name>{pokemon.name}</Name>
+        <InfoPanelContainer>
+            <Content>
+                <Name>{pokemon.name}</Name>
+                <p>Id: {pokemon.id}</p>
+            </Content>
             <Controls>
-                <button onClick={() => getPreviousPokemon(currentId)}>Back</button>
-                <button onClick={() => getNextPokemon(currentId)}>Next</button>
+                    <button disabled={currentId <= 1} onClick={() => getPreviousPokemon()}>Back</button>
+                    <button onClick={() => getNextPokemon()}>Next</button>
             </Controls>
            
-        </div>
-
+        </InfoPanelContainer>
     )
-
 }
 
 export default InfoPanel

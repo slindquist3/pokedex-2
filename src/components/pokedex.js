@@ -13,6 +13,8 @@ const PokedexContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid black;
+    background-color: red;
+    flex-wrap: wrap;
 `;
 
 const Pokedex = () => {
@@ -34,20 +36,20 @@ const Pokedex = () => {
     useEffect( () => {
         const pokemonResults = fetchPokemon(1);
         setPokemon(pokemonResults)
-
         setIsLoading(false)
     }, []);
     
-    const getNextPokemon = ( currentId ) => {
-        setCurrentId(currentId + 1)
-        fetchPokemon( currentId )
-
-        console.log( pokemon )
+    const getNextPokemon = () => {
+        const next = currentId + 1;
+        setCurrentId(next)
+        fetchPokemon(next)
     }
 
-    const getPreviousPokemon = ( currentId ) => {
-        setCurrentId(currentId - 1);
-        fetchPokemon(currentId);
+    const getPreviousPokemon = () => {
+        const previous = currentId - 1;
+
+        setCurrentId(previous);
+        fetchPokemon(previous);
     }
 
     return (
