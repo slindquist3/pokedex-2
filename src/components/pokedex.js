@@ -11,14 +11,6 @@ const PokedexContainer = styled.div`
     max-width: 200px;
     margin-left: 40px;
     margin-top: 40px;
-
-    @media only screen and (max-width: 300px) {
-        max-width: unset;
-        margin-left: 0;
-        width: 100%;
-      }
-
-
 `;
 
 const Pokedex = () => {
@@ -37,7 +29,7 @@ const Pokedex = () => {
      }
 
     useEffect( () => {
-        const pokemonResults = fetchPokemon(1);
+        const pokemonResults = fetchPokemon(currentId);
         setPokemon(pokemonResults)
         setIsLoading(false)
     }, []);
