@@ -12,15 +12,10 @@ const ImageContainer = styled.div`
     margin: 20px;
 `;
 
-const ImagePanel = ({image, name}) => {
-
-    return (
-            image ? 
-                <ImagePanelContainer>
-                    <ImageContainer><img alt={name} src={image.front_default} /></ImageContainer>
-                </ImagePanelContainer> 
-            : <p>loading...</p>
-    )
-}
+const ImagePanel = ({image, name}) => (
+    <ImagePanelContainer>
+        <ImageContainer><img alt={name} src={image.front_default} /></ImageContainer>
+    </ImagePanelContainer>
+);
 
 export default ImagePanel

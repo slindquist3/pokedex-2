@@ -19,13 +19,11 @@ const Pokedex = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchPokemon = async ( currentId ) => {
-
         const results = await fetch(`${URL}${currentId}`)
          .then(response => response.json())
          .then( data => setPokemon(data))
  
          return results;
- 
      }
 
     useEffect( () => {

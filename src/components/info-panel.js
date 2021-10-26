@@ -6,7 +6,6 @@ const Content = styled.div`
     background-color: white;
     text-align: center;
     margin: 0 20px;
-
 `
 
 const Name = styled.h1`
@@ -26,7 +25,7 @@ const InfoPanel = ({
     getNextPokemon,
     getPreviousPokemon,
     pokemon
-} ) => {
+}) => {
 
     return (
         <div>
